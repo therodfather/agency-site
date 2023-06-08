@@ -31,8 +31,8 @@
       </li>
     </ul>
   </div>
+  <h2>Contact us</h2>
   <p>Contact us to discuss your specific requirements and how we can assist you in achieving your goals.</p>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 </main>
 
 <style>
