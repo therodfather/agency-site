@@ -5,28 +5,37 @@
   
 	library.add(faCode, faCloud, faCogs, faProjectDiagram, faCheck);
   
-	// export let name: string;
   </script>
   
   <main>
+	<nav>
+	  <ul class="nav-bar">
+		<li><a href="/">Home</a></li>
+		<li><a href="/software">Software</a></li>
+		<li><a href="/devops">DevOps</a></li>
+		<li><a href="/cloud">Cloud</a></li>
+		<li><a href="/project">Project</a></li>
+	  </ul>
+	</nav>
+  
 	<h1>Welcome to Bytecats Consulting</h1>
 	<p>We are a team of experienced engineers and developers specializing in software solutions and DevOps.</p>
 	<p><strong>Our consulting services can help you with:</strong></p>
 	<ul>
 	  <li>
-		<FontAwesomeIcon icon={faCode} /> Software development and architecture
+		<FontAwesomeIcon class="fa-icon" icon={faCode} /> Software development and architecture
 	  </li>
 	  <li>
-		<FontAwesomeIcon icon={faCogs} /> DevOps implementation and automation
+		<FontAwesomeIcon class="fa-icon" icon={faCogs} /> DevOps implementation and automation
 	  </li>
 	  <li>
-		<FontAwesomeIcon icon={faCloud} /> Cloud infrastructure and deployment
+		<FontAwesomeIcon class="fa-icon" icon={faCloud} /> Cloud infrastructure and deployment
 	  </li>
 	  <li>
-		<FontAwesomeIcon icon={faProjectDiagram} /> Technical project management
+		<FontAwesomeIcon class="fa-icon" icon={faProjectDiagram} /> Technical project management
 	  </li>
 	  <li>
-		<FontAwesomeIcon icon={faCheck} /> Code reviews and optimizations
+		<FontAwesomeIcon class="fa-icon" icon={faCheck} /> Code reviews and optimizations
 	  </li>
 	</ul>
 	<p>Contact us to discuss your specific requirements and how we can assist you in achieving your goals.</p>
@@ -89,5 +98,26 @@
 	.fa-icon {
 	  margin-right: 8px;
 	}
+
+	nav {
+    background: #333;
+    padding: 0.5em;
+  }
+
+  .nav-bar {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-bar li {
+    margin: 0 0.5em;
+  }
+
+  .nav-bar li a {
+    color: white;
+    text-decoration: none;
+  }
   </style>
-  
