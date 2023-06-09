@@ -1,33 +1,39 @@
-<script>
-import PocketBase from 'pocketbase';
-
+<!-- src/lib/Login.svelte -->
+<script lang="ts">
+    import PocketBase from 'pocketbase';
+    import { user, isAuthenticated } from './auth'; // Add this line
+    
     let email = '';
     let password = '';
     const pb = new PocketBase('https://auth.bytecats.codes');
-
+    
     async function handleLogin() {
         const authData = await pb.collection('users').authWithPassword(
             email,
             password,
         );
         console.log(`Email: ${email}, Password: ${password}`);
+    
+        user.set(authData); // Add this line
+        localStorage.setItem('user', JSON.stringify(authData)); // Add this line
+        isAuthenticated.set(true); // Add this line
     }
-
-</script>
-
-<div class="login-container">
-<form on:submit|preventDefault={handleLogin}>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" bind:value={email} placeholder="Enter your email" required />
+    
+    </script>
+    
+    <div class="login-container">
+    <form on:submit|preventDefault={handleLogin}>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" bind:value={email} placeholder="Enter your email" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" bind:value={password} placeholder="Enter your password" required />
+        </div>
+        <button type="submit">Login</button>
+    </form>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" bind:value={password} placeholder="Enter your password" required />
-    </div>
-    <button type="submit">Login</button>
-</form>
-</div>
 
 <style>
     .login-container {
