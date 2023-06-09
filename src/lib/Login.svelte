@@ -1,37 +1,43 @@
 <script>
+import PocketBase from 'pocketbase';
+
     let email = '';
     let password = '';
+    const pb = new PocketBase('https://auth.bytecats.codes');
 
-    function handleLogin() {
-        // Handle login logic here
+    async function handleLogin() {
+        const authData = await pb.collection('users').authWithPassword(
+            email,
+            password,
+        );
         console.log(`Email: ${email}, Password: ${password}`);
     }
+
 </script>
 
-<main>
-    <h1>Login</h1>
-    <form on:submit|preventDefault={handleLogin}>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" bind:value={email} placeholder="Enter your email" required />
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" bind:value={password} placeholder="Enter your password" required />
-        </div>
-        <button type="submit">Login</button>
-    </form>
-</main>
+<div class="login-container">
+<form on:submit|preventDefault={handleLogin}>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" bind:value={email} placeholder="Enter your email" required />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" bind:value={password} placeholder="Enter your password" required />
+    </div>
+    <button type="submit">Login</button>
+</form>
+</div>
 
 <style>
-    main {
+    .login-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
+        min-height: 50vh;
         padding: 1em;
-        background-color: #f5f5f5;
+        /* background-color: #f5f5f5; */
         font-family: Arial, sans-serif;
     }
 

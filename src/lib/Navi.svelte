@@ -1,10 +1,11 @@
 <nav>
     <ul class="nav-bar">
-        <li><a href="/">Home</a></li>
+        <li><a href="/intro">Home</a></li>
         <li><a href="/software">Software</a></li>
         <li><a href="/devops">DevOps</a></li>
         <li><a href="/cloud">Cloud</a></li>
         <li><a href="/project">Project</a></li>
+        <li><a href="/login">Login</a></li>
     </ul>
 </nav>
 
