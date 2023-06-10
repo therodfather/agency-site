@@ -24,7 +24,7 @@
     {#if !isLoggedIn}
       <li><a href="/login">Login</a></li>
     {:else}
-      <li><a on:click={logOutHandler} href="#">Log Out</a></li>
+      <li><a on:click={logOutHandler} href="/login">Log Out</a></li>
     {/if}
   </ul>
 </nav>
