@@ -1,3 +1,4 @@
+// src/lib/cookie.ts
 export function getCookie(name: string): string | undefined {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -6,7 +7,8 @@ export function getCookie(name: string): string | undefined {
 
 
 export function deleteCookie(name: string): void {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure;`;
 }
+
 
 

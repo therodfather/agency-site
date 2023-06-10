@@ -1,3 +1,4 @@
+// src/lib/ligma.js
 import { writable } from "svelte/store";
 
 function persistentStore(key, startValue) {

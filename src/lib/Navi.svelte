@@ -2,21 +2,19 @@
 <script>
     import PocketBase from 'pocketbase';
     import { isLoggedIn } from './ligma.js';
-    import  deleteCookie  from '../App.svelte';
+    import { deleteCookie } from "./cookie.ts";
 
     function logOutHandler() {
+        event.preventDefault();
         const pb = new PocketBase('https://anij.bytecats.codes/pb');
 
-        new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
+        console.log('Logging out...');
             console.log('Logging out...');
 
             pb.authStore.clear();
             isLoggedIn.set(false);
             deleteCookie('authToken');
-        });
     }
-
-
 </script>
 
 <nav>
@@ -29,11 +27,10 @@
             <li><a on:click={logOutHandler} href="/login">Login</a></li>
         {/if}
         {#if isLoggedIn}
-            <li><a on:click={logOutHandler} href="/login">Log Out</a></li>
+            <li><a on:click={() => logOutHandler(event)} href="/login">Log Out</a></li>
         {/if}
-
-
     </ul>
+
 </nav>
 
 <style>
@@ -67,14 +64,14 @@
     }
 
     li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
     }
 
     li a:hover {
-      background-color: #111;
+        background-color: #111;
     }
 </style>
