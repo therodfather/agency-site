@@ -91,6 +91,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
   }
   .content-list {
     display: grid;
