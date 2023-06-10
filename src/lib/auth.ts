@@ -1,7 +1,5 @@
 // src/lib/auth.ts
-import { pocketbase } from './pocketbaseInstance';
-
-import { isLoggedIn, isLoading, loginError } from "./store";
+import { pocketbase, isLoggedIn, isLoading, loginError } from "./store";
 
 export const login = async (email, password) => {
     isLoading.set(true);

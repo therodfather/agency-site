@@ -5,9 +5,22 @@
 
     let email = "";
     let password = "";
+
+    const handleSubmit = async () => {
+        isLoading = true;
+        loginError = false;
+
+        try {
+            await login(email, password);
+        } catch (error) {
+            loginError = true;
+        }
+
+        isLoading = false;
+    };
 </script>
 
-<form on:submit|preventDefault={login}>
+<form on:submit|preventDefault={handleSubmit}>
     <label>
         Email:
         <input type="email" bind:value={email} required />

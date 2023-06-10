@@ -1,5 +1,6 @@
 // src/lib/store.js
 import { writable } from "svelte/store";
+import PocketBase from 'pocketbase';
 
 let isLoading = writable(false);
 let loginError = writable(false);
@@ -14,6 +15,8 @@ function persistentStore(key, startValue) {
 
   return store;
 }
+
+export const pocketbase = new PocketBase('https://auth.bytecats.codes');
 
 export const isLoggedIn = persistentStore('isLoggedIn', false)
 
