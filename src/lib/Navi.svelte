@@ -10,12 +10,29 @@
 </nav>
 
 <style>
+    .nav-bar {
+        position: fixed;      
+        top: 0px;
+        left: 0px;
+        min-width: 90%;
+        border-radius: 1.5rem;
+        justify-content: center; 
+        display: flex;
+        list-style: none;
+        padding: 1rem;
+        margin: 4rem;
+        font-size: x-large;
+    }
+
+    .nav-bar li {
+        margin: 0 0.5em;
+    }
+
     ul {
         list-style-type: none;
-        margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #333;
+        background-color: rgba(51, 51, 51, 0.8);
     }
 
     li {
@@ -30,25 +47,7 @@
       text-decoration: none;
     }
 
-    /* Change the link color to #111 (black) on hover */
     li a:hover {
       background-color: #111;
     }
-
-    .nav-bar {
-        position: absolute;      
-        top: 0px;
-        left: 0px;
-        min-width: 100%;
-        width: 100%;
-        justify-content: left; /* Change to "flex-start" to align items from left to right */
-        list-style: none;
-        padding: 1rem;
-        margin: 0rem;
-        font-size: x-large;
-    }
-
-    .nav-bar li {
-        margin: 0 0.5em;
-    }
-    </style>
+</style>
