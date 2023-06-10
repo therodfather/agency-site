@@ -57,7 +57,7 @@
         justify-content: center;
         min-height: 50vh;
         padding: 1em;
-        /* background-color: #f5f5f5; */
+        color: black;
         font-family: Arial, sans-serif;
     }
 
@@ -98,6 +98,7 @@
         font-size: 1em;
         border: 1px solid #ccc;
         border-radius: 4px;
+        background-color: #494949;
     }
 
     button {

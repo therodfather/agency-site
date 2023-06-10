@@ -1,19 +1,21 @@
+<!--src/lib/Navi.svelte-->
 <script>
-  import {onMount} from 'svelte';
-  import PocketBase from 'pocketbase';
-  import {isLoggedIn} from './ligma.js';
+    import PocketBase from 'pocketbase';
+    import { isLoggedIn } from './ligma.js';
 
-  function logOutHandler() {
-    onMount(async () => {
-      const pb = new PocketBase('https://anij.bytecats.codes/pb');
+    function logOutHandler() {
+        const pb = new PocketBase('https://anij.bytecats.codes/pb');
 
-      await new Promise(resolve => setTimeout(resolve, 2000));
+        new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
+            console.log('Logging out...');
 
-      pb.authStore.clear();
-      isLoggedIn.set(false);
-    });
-  }
+            pb.authStore.clear();
+            isLoggedIn.set(false);
+        });
+    }
+
 </script>
+
 <nav>
     <ul class="nav-bar">
         <li><a href="/intro">Home</a></li>
@@ -21,11 +23,12 @@
         <li><a href="/devops">DevOps</a></li>
         <li><a href="/cloud">Cloud</a></li> <li><a href="/project">Project</a></li>
         {#if !isLoggedIn}
-            <li><a onclick="logOutHandler();" href="/login">Login</a></li>
+            <li><a on:click={logOutHandler} href="/login">Login</a></li>
         {/if}
         {#if isLoggedIn}
-            <li><a onclick="logOutHandler();" href="/login">Log Out</a></li>
+            <li><a on:click={logOutHandler} href="/login">Log Out</a></li>
         {/if}
+
 
     </ul>
 </nav>
