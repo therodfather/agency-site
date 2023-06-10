@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Route } from 'svelte-navigator';
-    import { isLoggedIn } from './ligma.js';
+    import { isLoggedIn } from './store.js';
     import { navigate } from 'svelte-navigator';
   
     export let path: string; // Add this line

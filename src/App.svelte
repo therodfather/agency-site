@@ -1,32 +1,27 @@
 <!-- src/App.svelte -->
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
   import { Route, Router, navigate } from "svelte-navigator";
-  import { isLoggedIn } from './lib/ligma.js';
-  import Navi from './lib/Navi.svelte';
-  import Intro from './lib/Intro.svelte';
+  import { isLoggedIn } from "./lib/store.js";
+  import Navi from "./lib/Navi.svelte";
+  import Intro from "./lib/Intro.svelte";
   import Login from "./lib/Login.svelte";
-  import About from './lib/About.svelte';
+  import About from "./lib/About.svelte";
   import ProtectedRoute from "./lib/ProtectedRoute.svelte";
+  import { getCookie } from "./lib/auth";
 
   onMount(async () => {
     // Check for a valid auth token and set isAuthenticated accordingly
-    const authToken = getCookie('authToken');
+    const authToken = getCookie("authToken");
     if (authToken) {
       isLoggedIn.set(true);
     } else {
       isLoggedIn.set(false);
     }
   });
-
-  function getCookie(name: string): string | undefined {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop()?.split(';').shift();
-  }
 </script>
 
-<Navi/>
+<Navi />
 
 <main>
   <Router>

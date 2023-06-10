@@ -1,46 +1,13 @@
 <!-- src/lib/Login.svelte -->
 <script>
-    import { onMount } from 'svelte';
-    import PocketBase from 'pocketbase';
+    import { isLoading, loginError } from './store.js';
+    import { login } from './auth'
 
-    import { isLoggedIn } from './ligma.js';
-
-    let pocketbase;
     let email = '';
     let password = '';
-    let loginError = false;
-    let isLoading = false;
 
-    onMount(async () => {
-    pocketbase = new PocketBase('https://auth.bytecats.codes');
-    });
+    isLoading.set(false);
 
-const login = async () => {
-    isLoading = true;
-    loginError = false;
-
-    try {
-        let authData = await pocketbase.admins.authWithPassword(email, password);
-
-        if (!authData) {
-        authData = await pocketbase.authWithPassword(email, password);
-        }
-
-    if (authData) {
-        pocketbase.authStore.clear();
-        isLoggedIn.set(true);
-        loginError = false;
-        } else {
-        loginError = true;
-        }
-        console.log(authData);
-    } catch (error) {
-        console.error(error);
-        loginError = true;
-    } finally {
-        isLoading = false;
-    }
-        };
 </script>
 
 <div class="login-container">
@@ -53,17 +20,19 @@ const login = async () => {
         <label for="password">Password</label>
         <input type="password" id="password" bind:value={password} placeholder="Enter your password" required />
     </div>
-    <button type="submit" disabled={isLoading}>
-        {#if isLoading}
+    <button type="submit" disabled={ isLoading }>
+        {#if isLoading }
         <span class="spinner"></span>
         {:else}
         Login
         {/if}
     </button>
-    {#if loginError}
+    {#if loginError }
         <p class="error-message">Invalid email or password. Please try again.</p>
     {/if}
+
     </form>
+
 </div>
 
 <style>
