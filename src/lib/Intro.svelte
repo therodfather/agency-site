@@ -94,19 +94,23 @@ h1 {
   }
   .content-list {
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
     list-style-type: none;
     margin-left: 0;
     padding-left: 0;
+
   }
 
   .content-item {
     margin-left: 1rem;
     padding: 0.5rem;
+    min-width: 90%;
+    max-height: 34vh;
     background-color: rgba(10, 29, 69, 0.329);
     border-radius: 2rem;
-
+    padding: 1rem;
   }
 
   li {

@@ -40,7 +40,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1.5rem;
     z-index: 1;
     border-radius: 10px; 
     backdrop-filter: blur(5px);

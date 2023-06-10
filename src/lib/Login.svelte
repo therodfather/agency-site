@@ -90,9 +90,9 @@ const login = async () => {
         flex-direction: column;
         align-items: center;
         width: 300px;
-        background-color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.60);
         border-radius: 8px;
-        padding: 2em;
+        padding: 3em;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
@@ -107,15 +107,19 @@ label {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 0.5em;
+    color: rgba(26, 26, 26, 0.80);
 }
 
 input {
     width: 100%;
     padding: 0.5em;
+    margin-right: 0.5rem;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #494949;
+    background-color: #605d5d;
+    color: #ffffff;
+
 }
 
   button {
