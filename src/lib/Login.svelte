@@ -1,28 +1,39 @@
 <!-- src/lib/Login.svelte -->
-<script lang="ts">
+<script>
+    import {onMount} from 'svelte';
     import PocketBase from 'pocketbase';
-    import { user, isAuthenticated } from './auth'; // Add this line
+    import {isLoggedIn} from './ligma.js';
     
+    let pocketbase;
     let email = '';
     let password = '';
-    const pb = new PocketBase('https://auth.bytecats.codes');
+    let loginError = false;
+
+    onMount(async () => {
+      pocketbase = new PocketBase('https://auth.bytecats.codes');
+    });
     
-    async function handleLogin() {
-        const authData = await pb.collection('users').authWithPassword(
-            email,
-            password,
-        );
-        console.log(`Email: ${email}, Password: ${password}`);
-    
-        user.set(authData); // Add this line
-        localStorage.setItem('user', JSON.stringify(authData)); // Add this line
-        isAuthenticated.set(true); // Add this line
-    }
-    
+    const login = async () => {
+        try {
+          const authData = pocketbase.admins.authWithPassword(email, password);
+
+          if (authData) {
+            pocketbase.authStore.clear();
+            isLoggedIn.set(true);
+            loginError = false;
+          } else {
+            loginError = true;
+          }
+          console.log(authData) 
+        } catch (error) {
+          console.error(error);
+          loginError = true;
+        }
+    };
     </script>
     
     <div class="login-container">
-    <form on:submit|preventDefault={handleLogin}>
+    <form on:submit|preventDefault={login}>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" bind:value={email} placeholder="Enter your email" required />
@@ -31,7 +42,10 @@
             <label for="password">Password</label>
             <input type="password" id="password" bind:value={password} placeholder="Enter your password" required />
         </div>
-        <button type="submit">Login</button>
+        <a href="/intro"><button type="submit">Login</button></a>
+        {#if loginError}
+            <p class="error-message">Invalid email or password. Please try again.</p>
+        {/if}
     </form>
     </div>
 
@@ -90,9 +104,7 @@
         padding: 0.5em 1em;
         font-size: 1em;
         font-weight: bold;
-        background-color: #4f98ca;
-        color: #ffffff;
-        border: none;
+        background-color: #4f98ca; color: #ffffff; border: none;
         border-radius: 4px;
         cursor: pointer;
     }

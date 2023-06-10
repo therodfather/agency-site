@@ -2,7 +2,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { Route, Router, navigate } from "svelte-navigator";
-  import { isAuthenticated } from './lib/auth';
+  import { isLoggedIn } from './lib/ligma.js';
   import Navi from './lib/Navi.svelte';
   import Intro from './lib/Intro.svelte';
   import Login from "./lib/Login.svelte";
@@ -12,9 +12,9 @@
     // Check for a valid auth token and set isAuthenticated accordingly
     const authToken = getCookie('authToken');
     if (authToken) {
-      isAuthenticated.set(true);
+      isLoggedIn.set(true);
     } else {
-      isAuthenticated.set(false);
+      isLoggedIn.set(false);
     }
   });
 

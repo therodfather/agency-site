@@ -1,17 +1,17 @@
 <script lang="ts">
     import { Route } from 'svelte-navigator';
-    import { isAuthenticated } from './auth';
+    import { isLoggedIn } from './ligma.js';
     import { navigate } from 'svelte-navigator';
   
     export let path: string; // Add this line
     export let component: any; // Add this line
     let props = {};
   
-    $: if (!$isAuthenticated) {
+    $: if (!isLoggedIn) {
       navigate('/login');
     }
   </script>
   
   <Route {path} let:params>
-    <svelte:component this={$isAuthenticated ? component : null} {...props} {params} />
+    <svelte:component this={isLoggedIn? component : null} {...props} {params} />
   </Route>
