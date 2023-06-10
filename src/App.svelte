@@ -6,7 +6,7 @@
   import Navi from './lib/Navi.svelte';
   import Intro from './lib/Intro.svelte';
   import Login from "./lib/Login.svelte";
-  import About from "./lib/About.svelte";
+  import About from './lib/About.svelte';
   import ProtectedRoute from "./lib/ProtectedRoute.svelte";
 
   onMount(async () => {
