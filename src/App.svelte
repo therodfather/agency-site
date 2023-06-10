@@ -7,6 +7,7 @@
   import Intro from './lib/Intro.svelte';
   import Login from "./lib/Login.svelte";
   import ProtectedRoute from "./lib/ProtectedRoute.svelte";
+  import { getCookie } from './lib/cookie.ts';
 
   onMount(async () => {
     // Check for a valid auth token and set isAuthenticated accordingly
@@ -18,11 +19,7 @@
     }
   });
 
-  function getCookie(name: string): string | undefined {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop()?.split(';').shift();
-  }
+
 </script>
 
 <Navi/>

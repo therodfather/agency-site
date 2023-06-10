@@ -10,24 +10,24 @@
     let loginError = false;
 
     onMount(async () => {
-      pocketbase = new PocketBase('https://auth.bytecats.codes');
+        pocketbase = new PocketBase('https://auth.bytecats.codes');
     });
     
     const login = async () => {
         try {
-          const authData = pocketbase.admins.authWithPassword(email, password);
+            const authData = pocketbase.admins.authWithPassword(email, password);
 
-          if (authData) {
-            pocketbase.authStore.clear();
-            isLoggedIn.set(true);
-            loginError = false;
-          } else {
+            if (authData) {
+                pocketbase.authStore.clear();
+                isLoggedIn.set(true);
+                loginError = false;
+            } else {
             loginError = true;
-          }
-          console.log(authData) 
+            }
+            console.log(authData)
         } catch (error) {
-          console.error(error);
-          loginError = true;
+            console.error(error);
+            loginError = true;
         }
     };
     </script>

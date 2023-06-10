@@ -2,6 +2,7 @@
 <script>
     import PocketBase from 'pocketbase';
     import { isLoggedIn } from './ligma.js';
+    import  deleteCookie  from '../App.svelte';
 
     function logOutHandler() {
         const pb = new PocketBase('https://anij.bytecats.codes/pb');
@@ -11,8 +12,10 @@
 
             pb.authStore.clear();
             isLoggedIn.set(false);
+            deleteCookie('authToken');
         });
     }
+
 
 </script>
 

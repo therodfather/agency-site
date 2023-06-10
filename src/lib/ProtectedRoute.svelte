@@ -1,10 +1,11 @@
+<!--src/lib/ProtectedRoute.svelte-->
 <script lang="ts">
     import { Route } from 'svelte-navigator';
     import { isLoggedIn } from './ligma.js';
     import { navigate } from 'svelte-navigator';
   
-    export let path: string; // Add this line
-    export let component: any; // Add this line
+    export let path: string;
+    export let component: any;
     let props = {};
   
     $: if (!isLoggedIn) {
