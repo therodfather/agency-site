@@ -10,27 +10,45 @@
 </nav>
 
 <style>
-    nav {
-        background: #333;
-        padding: 0.5em;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+      background-color: #111;
     }
 
     .nav-bar {
-        display: flex;
+        position: absolute;      
+        top: 0px;
+        left: 0px;
         min-width: 100%;
         width: 100%;
-        justify-content: center; /* Change to "flex-start" to align items from left to right */
+        justify-content: left; /* Change to "flex-start" to align items from left to right */
         list-style: none;
         padding: 1rem;
-        margin: 1rem;
+        margin: 0rem;
         font-size: x-large;
     }
 
     .nav-bar li {
         margin: 0 0.5em;
     }
-
-    .nav-bar li a {
-        color: white;
-        text-decoration: none;
-    }</style>
+    </style>
