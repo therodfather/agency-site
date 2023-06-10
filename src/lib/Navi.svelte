@@ -39,8 +39,8 @@
 <style>
     .nav-bar {
         position: fixed;      
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         min-width: 90%;
         border-radius: 1.5rem;
         justify-content: center; 

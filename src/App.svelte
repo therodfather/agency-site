@@ -1,7 +1,7 @@
 <!-- src/App.svelte -->
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { Route, Router, navigate } from "svelte-navigator";
+  import { Route, Router } from "svelte-navigator";
   import { isLoggedIn } from './lib/ligma.js';
   import Navi from './lib/Navi.svelte';
   import Intro from './lib/Intro.svelte';
