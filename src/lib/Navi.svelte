@@ -23,6 +23,7 @@
         <li><a href="/software">Software</a></li>
         <li><a href="/devops">DevOps</a></li>
         <li><a href="/cloud">Cloud</a></li> <li><a href="/project">Project</a></li>
+        <li><a href="/about">About</a></li>
         {#if !isLoggedIn}
             <li><a on:click={logOutHandler} href="/login">Login</a></li>
         {/if}
