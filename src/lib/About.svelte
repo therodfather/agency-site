@@ -40,7 +40,7 @@
   
   <style>
     .carousel-container {
-      margin-top: 10em;
+      margin-top: 5rem;
     }
   
     .carousel {
@@ -86,6 +86,7 @@
       align-items: center;
       padding: 20px;
       background-color: #f4f4f4;
+      color:#333;
       border-radius: 5px;
     }
 
@@ -114,7 +115,7 @@
 
     .centered {
       text-align: center;
-      color: #333;
+      color:#333;
       font-weight: bold;
       margin-bottom: 10px;
       font-size: xx-large;

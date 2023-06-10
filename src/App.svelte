@@ -30,8 +30,8 @@
 
 <main>
   <Router>
-    <ProtectedRoute path="/intro" component={Intro}/>
-    <Route path="/login" component={Login}/>
-    <Route path="about" component={About}/>
+    <ProtectedRoute path="/intro" component={Intro} />
+    <Route path="/login" component={Login} />
+    <ProtectedRoute path="/about" component={About} />
   </Router>
 </main>
