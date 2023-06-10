@@ -15,7 +15,7 @@ export const login = async (email, password) => {
             UserAuthData = await pocketbase.collection('users').authWithPassword(email, password);
         }
 
-        if (AdminAuthData || UserAuthData ) {
+        if (AdminAuthData || UserAuthData) {
             pocketbase.authStore.clear();
             isLoggedIn.set(true);
             loginError.set(false);
@@ -38,6 +38,8 @@ export function logOutHandler() {
         pocketbase.authStore.clear();
         isLoggedIn.set(false);
         deleteCookie('auth_token');
+        deleteCookie('AuthToken');
+        deleteCookie('authToken');
     });
 }
 
@@ -51,4 +53,5 @@ export function getCookie(name: string): string | undefined {
 
 export function deleteCookie(name: string): void {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    console.log("tried to delete cookie");
 }
